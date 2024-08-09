@@ -2,9 +2,9 @@ import './App.css'
 import {useEffect, useState} from "react";
 
 function App() {
-    const [data,setData] = useState({});
+    const [data,setData] = useState({message:""});
     useEffect( () => {
-        fetch(`http://localhost:8080`)
+        fetch(`/api/hello/`)
             .then(response => response.json())
             .then(data => setData(data))
     },[])
