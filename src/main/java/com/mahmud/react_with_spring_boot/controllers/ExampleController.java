@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(originPatterns = "*")
-@RequestMapping("")
+@RequestMapping(value = {"/api/hello","/api/hello/"})
 public class ExampleController {
     @GetMapping()
     public ResponseEntity<Response> index() {
