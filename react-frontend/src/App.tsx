@@ -1,5 +1,6 @@
 import './App.css'
 import {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
 
 function App() {
     const [data,setData] = useState({message:""});
@@ -11,6 +12,7 @@ function App() {
   return (
     <main>
         <h1>{data.message}</h1>
+        <Link to={"/about"}>Go to about page</Link>
     </main>
   )
 }
