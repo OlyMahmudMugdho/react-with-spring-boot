@@ -29,7 +29,7 @@ jobs:
           username : ${{secrets.DOCKER_USERNAME}}
           password : ${{secrets.DOCKERHUB_TOKEN}}
       - name: List files
-        run: "cp target/*.jar . && ls"
+        run: "cp target/react-with-spring-boot-0.0.1-SNAPSHOT.jar . && mv react-with-spring-boot-0.0.1-SNAPSHOT.jar app.jar && ls"
       - name : Build and Push Image
         uses: docker/build-push-action@v6
         with:
