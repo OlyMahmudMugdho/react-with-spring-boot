@@ -29,12 +29,13 @@ jobs:
           username : ${{secrets.DOCKER_USERNAME}}
           password : ${{secrets.DOCKERHUB_TOKEN}}
       - name: List files
-        run: "cp target/*.jar ."
+        run: "cp target/*.jar . && ls"
       - name : Build and Push Image
         uses: docker/build-push-action@v6
         with:
           push: 'true'
           tags: ${{secrets.DOCKER_USERNAME}}/react-with-spring-boot
 
-
+      - name: List files again
+        run: "ls"
 
