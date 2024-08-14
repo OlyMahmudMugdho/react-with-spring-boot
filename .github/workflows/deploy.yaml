@@ -18,7 +18,7 @@ jobs:
           distribution: 'temurin'
 
       - name : Package jar
-        run : ./mvnw clean package
+        run : ./mvnw clean install
 
       - name: Setup Docker BuildX
         uses: docker/setup-buildx-action@v3
@@ -28,8 +28,6 @@ jobs:
         with:
           username : ${{secrets.DOCKER_USERNAME}}
           password : ${{secrets.DOCKERHUB_TOKEN}}
-      - name: List files
-        run: "cp Dockerfile target/ && cd target"
       - name : Build and Push Image
         uses: docker/build-push-action@v6
         with:
