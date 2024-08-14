@@ -6,8 +6,7 @@ pipeline {
     }
     agent {
         docker {
-            image 'maven:3.9.8-eclipse-temurin-21-alpine'
-            args '-v /root/.m2:/root/.m2'
+            image 'olymahmudmugdho/maven-docker:3.98-temurin-21-jammy'
         }
     }
     stages {
@@ -23,14 +22,14 @@ pipeline {
             }
         }
 
-        stage('Building our image') {
+        stage('Building the image') {
             steps {
                 script {
                     dockerImage = docker.build registry
                 }
             }
         }
-        stage('Deploy our image') {
+        stage('Deploy the image') {
             steps {
                 script {
                     docker.withRegistry('', registryCredential) {
@@ -41,7 +40,7 @@ pipeline {
         }
         stage('Cleaning up') {
             steps {
-                sh "docker rmi $registry:$BUILD_NUMBER"
+                sh "docker rmi $registry"
             }
         }
     }
