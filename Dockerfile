@@ -1,4 +1,5 @@
-FROM alpine/java:21-jdk
-ADD target/app.jar app.jar
+FROM openjdk:21-jdk
+WORKDIR /app
+COPY target/app.jar /app/app.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
