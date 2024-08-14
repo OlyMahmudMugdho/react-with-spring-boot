@@ -33,7 +33,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: 'true'
-          tags: olymahmudmugdho/react-with-spring-boot
+          tags: ${{secrets.DOCKER_USERNAME}}/react-with-spring-boot
 
 
 
