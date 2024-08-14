@@ -17,13 +17,6 @@ pipeline {
             }
         }
 
-        stage('Setup Java') {
-            steps {
-                sh 'sdk install java 21.0.0-tem'
-            }
-        }
-
-
         stage('Building maven') {
             steps {
                 sh './mvnw clean install'
