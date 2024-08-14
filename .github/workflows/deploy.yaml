@@ -31,7 +31,7 @@ jobs:
 
       - name : Build the image
         run : | 
-          docker build -t olymahmudmugdho/react-with-spring-boot
+          docker build -t olymahmudmugdho/react-with-spring-boot .
 
       - name : Push the image
         run: |
