@@ -4,7 +4,12 @@ pipeline {
         registryCredential = 'dockerhub'
         dockerImage = ''
     }
-    agent any
+    agent {
+        docker {
+            image 'maven:3.9.8-eclipse-temurin-21-alpine'
+            args '-v /root/.m2:/root/.m2'
+        }
+    }
     stages {
         stage('Cloning our Git') {
             steps {
